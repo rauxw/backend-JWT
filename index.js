@@ -2,11 +2,14 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const adminRouter = require("./routes/admin");
 const app = express();
 const PORT = process.env.SERVER_PORT;
 const MONGO_DB = process.env.MONGO_URL;
 
-app.use(express.json());
+app.use(bodyParser.json());
+app.use("/api/v1/admin", adminRouter);
 
 async function main() {
   try {
