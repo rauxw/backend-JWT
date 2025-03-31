@@ -4,12 +4,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const adminRouter = require("./routes/admin");
+const userRouter = require("./routes/user");
 const app = express();
 const PORT = process.env.SERVER_PORT;
 const MONGO_DB = process.env.MONGO_URL;
 
 app.use(bodyParser.json());
 app.use("/api/v1/admin", adminRouter);
+app.use("/api/v1/user", userRouter);
 
 async function main() {
   try {

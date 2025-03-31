@@ -8,7 +8,7 @@ const AdminSchema = new mongoose.Schema({
 const UserSchema = new mongoose.Schema({
   username: { type: String, unique: true },
   password: String,
-  purchasedCourse: [{ type: mongoose.Schema.ObjectId, ref: "Course" }],
+  purchasedCourses: [{ type: mongoose.Schema.ObjectId, ref: "Course" }],
 });
 
 const CourseSchema = new mongoose.Schema({
